@@ -1,7 +1,15 @@
 project:
-  title: "Lab 6"
-  output-dir: docs
-  type: website
+   type: website
+   output-dir: docs
+   
+website:
+  title: "Lab 6 & 8"
+  navbar:
+    left: 
+      - href: index.qmd
+      - text: Lab 6
+      - href: hyperparameter-tuning.qmd
+      - text: Lab 8
 format: 
   html: 
     self-contained: true
@@ -9,8 +17,7 @@ format:
     css: styles.css
     toc: true
 
-website:
-  title: "Lab 6"
+
  
 
 
