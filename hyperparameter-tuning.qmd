@@ -114,7 +114,7 @@ wf <- workflow_set(list(rec), list(nn_model, rf_model, xgb_model)) %>%
 autoplot(wf)
 ```
 
-**Model Selection with Justification** The model I am going to move forward with is the neural network because the visualized metrics indicate that it has the highest r-squared and lowest root mean squared error of the defined models. This model is a neural net engine and regression mode. I think it is performing well for this problem because
+**Model Selection with Justification** The model I am going to move forward with is the neural network because the visualized metrics indicate that it has the highest r-squared and lowest root mean squared error of the defined models. This model is a bagged multilayer percetron model that combines neural networks with bootstrap aggregation. The engine is nnet and the mode is regression. I think it is performing well for this problem because of its flexibility and ability to capture complex relationships. 
 
 ## Model Tuning
 
@@ -172,7 +172,7 @@ collect_metrics(model_params)
 
 show_best(model_params, metric = "mae")
 ```
-
+This indicates that the best hyperparameter set is Penalty: 0.0004710049 and Epochs: 222.
 ```{r}
 hp_best <- select_best(model_params, metric = "mae")
 ```
@@ -202,6 +202,7 @@ final_fit <- last_fit(
 collect_metrics(final_fit)
 preds <- collect_predictions(final_fit)
 ```
+These results indicate that the final model is performing well on the test data. The rmse of the test data model is slightly higher than the training model but the r-squared is also slightly higher.
 
 **Plot Predictions**
 
